@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>KurrentDB PHP Client by FriendsOfOuro</title>
+    <title>Friends of Ouro - Event Sourcing & KurrentDB PHP Libraries</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -16,61 +16,97 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1 class="header">KurrentDB PHP Client</h1>
-        <p class="header">Modern PHP client for <a href="https://kurrent.io/">KurrentDB</a> (formerly EventStoreDB)</p>
+        <h1 class="header">Friends of Ouro</h1>
+        <p class="header">Event Sourcing & <a href="https://kurrent.io/">KurrentDB</a> PHP Libraries</p>
 
         <ul>
-          <li class="download"><a class="buttons" href="https://github.com/FriendsOfOuro/kurrentdb-php-core/archive/refs/heads/main.zip">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/FriendsOfOuro/kurrentdb-php-core/archive/refs/heads/main.tar.gz">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/FriendsOfOuro/kurrentdb-php-core">View On GitHub</a></li>
+          <li class="download"><a class="buttons" href="https://packagist.org/packages/friendsofouro/">Packagist</a></li>
+          <li><a class="buttons github" href="https://github.com/FriendsOfOuro">GitHub Organization</a></li>
         </ul>
 
-        <p class="header">This project is maintained by <a class="header name" href="https://github.com/FriendsOfOuro">FriendsOfOuro</a></p>
+        <p class="header">Open source PHP libraries for event sourcing</p>
 
       </header>
       <section>
         <h1>
-<a name="kurrentdb-php-client" class="anchor" href="#kurrentdb-php-client"><span class="octicon octicon-link"></span></a>KurrentDB PHP Client</h1>
+<a name="friends-of-ouro" class="anchor" href="#friends-of-ouro"><span class="octicon octicon-link"></span></a>Friends of Ouro</h1>
 
-<p>A modern PHP client library for <a href="https://kurrent.io/">KurrentDB</a> (formerly EventStoreDB) HTTP API, designed for event sourcing applications.</p>
-
-<p><a href="https://github.com/FriendsOfOuro/kurrentdb-php-core/actions/workflows/php_8.yml"><img src="https://github.com/FriendsOfOuro/kurrentdb-php-core/actions/workflows/php_8.yml/badge.svg" alt="PHP 8"></a>
-<a href="https://packagist.org/packages/friendsofouro/kurrentdb-core"><img src="https://img.shields.io/packagist/v/friendsofouro/kurrentdb-core.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/friendsofouro/kurrentdb-core"><img src="https://img.shields.io/packagist/l/friendsofouro/kurrentdb-core.svg" alt="License"></a></p>
+<p>Open source PHP libraries for event sourcing and <a href="https://kurrent.io/">KurrentDB</a> (formerly EventStoreDB) integration. Our mission is to provide modern, type-safe, and well-tested PHP tools for building event-driven applications.</p>
 
 <h2>
-<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h2>
+<a name="our-projects" class="anchor" href="#our-projects"><span class="octicon octicon-link"></span></a>Our Projects</h2>
+
+<h3>
+<a name="kurrentdb-php-core" class="anchor" href="#kurrentdb-php-core"><span class="octicon octicon-link"></span></a>🏗️ KurrentDB PHP Core</h3>
+
+<p><strong>The main PHP client library for KurrentDB HTTP API</strong></p>
+
+<p><a href="https://github.com/FriendsOfOuro/kurrentdb-php-core/actions/workflows/php_8.yml"><img src="https://github.com/FriendsOfOuro/kurrentdb-php-core/actions/workflows/php_8.yml/badge.svg" alt="PHP 8"></a>
+<a href="https://packagist.org/packages/friendsofouro/kurrentdb-core"><img src="https://img.shields.io/packagist/v/friendsofouro/kurrentdb-core.svg" alt="Latest Stable Version"></a></p>
 
 <ul>
-<li>✅ Support for KurrentDB HTTP API</li>
-<li>✅ Event stream management (read, write, delete)</li>
+<li>✅ Modern PHP 8.4+ with strict typing</li>
+<li>✅ Stream management (read, write, delete)</li>
 <li>✅ Optimistic concurrency control</li>
-<li>✅ Stream iteration (forward and backward)</li>
-<li>✅ Batch operations for performance</li>
-<li>✅ Built-in HTTP caching support</li>
-<li>✅ PSR-7 and PSR-18 compliant</li>
-<li>✅ Type-safe with PHP 8.4 features</li>
+<li>✅ Forward/backward iteration with page limits</li>
+<li>✅ Batch operations & HTTP caching</li>
+<li>✅ PSR-7/PSR-18 compliant</li>
 <li>✅ Comprehensive error handling</li>
 </ul>
 
-<h2>
-<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+<pre><code>composer require friendsofouro/kurrentdb-core</code></pre>
+
+<p><a href="https://github.com/FriendsOfOuro/kurrentdb-php-core">📚 Documentation & Source Code</a></p>
+
+<h3>
+<a name="kurrentdb-php" class="anchor" href="#kurrentdb-php"><span class="octicon octicon-link"></span></a>📦 KurrentDB PHP (Metapackage)</h3>
+
+<p><strong>Convenience package with good defaults</strong></p>
+
+<p>This metapackage includes <code>kurrentdb-core</code> with sensible default dependencies, perfect for quick setup.</p>
+
+<pre><code>composer require friendsofouro/kurrentdb-php</code></pre>
+
+<p><a href="https://github.com/FriendsOfOuro/kurrentdb-php">🔗 GitHub Repository</a></p>
+
+<h3>
+<a name="kurrentdb-bundle" class="anchor" href="#kurrentdb-bundle"><span class="octicon octicon-link"></span></a>🎯 KurrentDB Symfony Bundle</h3>
+
+<p><strong>Symfony 7.3+ integration bundle</strong></p>
+
+<p>Seamless integration of KurrentDB into your Symfony applications with dependency injection, configuration management, and more.</p>
 
 <ul>
-<li>PHP 8.4 or higher</li>
-<li>KurrentDB server (HTTP API enabled)</li>
+<li>✅ Symfony 7.3+ compatibility</li>
+<li>✅ Service container integration</li>
+<li>✅ Configuration management</li>
+<li>✅ Auto-wiring support</li>
 </ul>
 
+<pre><code>composer require friendsofouro/kurrentdb-bundle</code></pre>
+
+<p><a href="https://github.com/FriendsOfOuro/kurrentdb-bundle">📘 Bundle Documentation</a></p>
+
+<h3>
+<a name="kurrentdb-docker-example" class="anchor" href="#kurrentdb-docker-example"><span class="octicon octicon-link"></span></a>🐳 KurrentDB Docker Example</h3>
+
+<p><strong>Simple Docker setup for local development</strong></p>
+
+<p>Ready-to-use Docker Compose configuration for running KurrentDB locally. Perfect for development and testing.</p>
+
+<ul>
+<li>🚀 Single command setup: <code>docker-compose up</code></li>
+<li>🌐 Web UI available at <a href="http://localhost:2113/">http://localhost:2113/</a></li>
+<li>🔐 Default credentials: admin/changeit</li>
+<li>💾 Persistent data storage</li>
+</ul>
+
+<p><a href="https://github.com/FriendsOfOuro/kurrentdb-docker-example">🐋 Get Docker Setup</a></p>
+
 <h2>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
 
-<h3>Via Composer</h3>
-
-<pre><code>composer require friendsofouro/kurrentdb-core
-</code></pre>
-
-<h2>
-<a name="quick-start" class="anchor" href="#quick-start"><span class="octicon octicon-link"></span></a>Quick Start</h2>
+<h3>Quick Example</h3>
 
 <pre><code>use KurrentDB\EventStore;
 use KurrentDB\Http\GuzzleHttpClient;
@@ -93,28 +129,31 @@ $event = new WritableEvent(
 $version = $eventStore-&gt;writeToStream('user-123', $event);
 
 // Read events
-$streamFeed = $eventStore-&gt;openStreamFeed('user-123');
-foreach ($streamFeed-&gt;getEntries() as $entry) {
-    $event = $eventStore-&gt;readEvent($entry-&gt;getEventUrl());
-    echo $event-&gt;getType() . "\n";
+foreach ($eventStore-&gt;forwardStreamFeedIterator('user-123') as $entry) {
+    echo "Event: " . $entry-&gt;getEvent()-&gt;getType() . "\n";
 }
 </code></pre>
 
 <h2>
-<a name="api-documentation" class="anchor" href="#api-documentation"><span class="octicon octicon-link"></span></a>API Documentation</h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
 
-<p>Complete API documentation is available at <a href="api/index.html">API Reference</a>.</p>
+<ul>
+<li>PHP 8.4 or higher</li>
+<li>KurrentDB server instance</li>
+<li>Composer for package management</li>
+</ul>
 
 <h2>
 <a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
 
-<p>Contributions are welcome! Please see our <a href="https://github.com/FriendsOfOuro/kurrentdb-php-core/blob/main/CONTRIBUTING.md">Contributing Guide</a> for details.</p>
+<p>We welcome contributions! Each repository has its own contributing guidelines:</p>
 
-<h2>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+<ul>
+<li><a href="https://github.com/FriendsOfOuro/kurrentdb-php-core/blob/main/CONTRIBUTING.md">kurrentdb-php-core Contributing Guide</a></li>
+<li><a href="https://github.com/FriendsOfOuro/kurrentdb-bundle">kurrentdb-bundle Issues</a></li>
+</ul>
 
-<p>KurrentDB PHP Client is released under the MIT License. See the bundled
-<a href="https://github.com/FriendsOfOuro/kurrentdb-php-core/blob/main/LICENSE">LICENSE</a> file for details.</p>
+<p>Feel free to open issues, submit pull requests, or discuss improvements in our GitHub repositories.</p>
 
       </section>
       <footer>
