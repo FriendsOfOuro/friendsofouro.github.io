@@ -109,14 +109,20 @@
 <h3>Quick Example</h3>
 
 <pre><code>use KurrentDB\EventStore;
-use KurrentDB\Http\GuzzleHttpClient;
+use FriendsOfOuro\Http\Batch\Guzzle\GuzzleHttpClient;
 use KurrentDB\WritableEvent;
 use KurrentDB\ValueObjects\Identity\UUID;
+use GuzzleHttp\Psr7\HttpFactory;
 
 // Create client
+$httpFactory = new HttpFactory();
+$httpClient = new GuzzleHttpClient();
+
 $eventStore = new EventStore(
-    'http://admin:changeit@127.0.0.1:2113',
-    new GuzzleHttpClient()
+    $httpFactory->createUri('http://admin:changeit@127.0.0.1:2113'),
+    $httpFactory,  // UriFactory
+    $httpFactory,  // RequestFactory
+    $httpClient
 );
 
 // Write events
