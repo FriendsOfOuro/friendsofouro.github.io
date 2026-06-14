@@ -129,8 +129,26 @@
         </div>
 
         <div class="stream">
-          <!-- core -->
+          <!-- metapackage (recommended starting point) -->
           <div class="event reveal">
+            <div class="card">
+              <div class="top">
+                <div class="ico">📦</div>
+                <div>
+                  <h3>KurrentDB PHP <span class="badge-rec">start here</span></h3>
+                  <div class="pkg">friendsofouro/kurrentdb-php</div>
+                </div>
+                <span class="stars">★ 5</span>
+              </div>
+              <p class="desc">A convenience metapackage that bundles the core client with sensible default dependencies. The fastest way to go from <code>composer require</code> to writing events — most people should start here.</p>
+              <div class="tags"><span class="tag">good defaults</span><span class="tag">quick setup</span><span class="tag">metapackage</span></div>
+              <div class="install"><code><span class="sigil">$ </span>composer require friendsofouro/kurrentdb-php</code><button class="copy" data-cmd="composer require friendsofouro/kurrentdb-php">copy</button></div>
+              <a class="more" href="https://github.com/FriendsOfOuro/kurrentdb-php">GitHub repository <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+
+          <!-- core -->
+          <div class="event is-teal reveal">
             <div class="card">
               <div class="top">
                 <div class="ico">🏗️</div>
@@ -144,24 +162,6 @@
               <div class="tags"><span class="tag">stream r/w/delete</span><span class="tag">optimistic concurrency</span><span class="tag">batch ops</span><span class="tag">PSR-7/18</span></div>
               <div class="install"><code><span class="sigil">$ </span>composer require friendsofouro/kurrentdb-core</code><button class="copy" data-cmd="composer require friendsofouro/kurrentdb-core">copy</button></div>
               <a class="more" href="https://github.com/FriendsOfOuro/kurrentdb-php-core">Documentation &amp; source <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            </div>
-          </div>
-
-          <!-- metapackage -->
-          <div class="event is-teal reveal">
-            <div class="card">
-              <div class="top">
-                <div class="ico">📦</div>
-                <div>
-                  <h3>KurrentDB PHP</h3>
-                  <div class="pkg">friendsofouro/kurrentdb-php</div>
-                </div>
-                <span class="stars">★ 5</span>
-              </div>
-              <p class="desc">A convenience metapackage that bundles the core client with sensible default dependencies. The fastest way to go from <code>composer require</code> to writing events.</p>
-              <div class="tags"><span class="tag">good defaults</span><span class="tag">quick setup</span><span class="tag">metapackage</span></div>
-              <div class="install"><code><span class="sigil">$ </span>composer require friendsofouro/kurrentdb-php</code><button class="copy" data-cmd="composer require friendsofouro/kurrentdb-php">copy</button></div>
-              <a class="more" href="https://github.com/FriendsOfOuro/kurrentdb-php">GitHub repository <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
           </div>
 
@@ -244,7 +244,19 @@
         <div class="sec-head reveal">
           <div class="sec-tag">// quick start</div>
           <h2>Write your first event in minutes.</h2>
-          <p>Spin up KurrentDB with the Docker example, install the core client, and you're appending events to a stream.</p>
+          <p>Spin up KurrentDB with the Docker example, install the metapackage, and you're appending events to a stream.</p>
+        </div>
+
+        <div class="codewrap reveal">
+          <div class="codebar">
+            <span class="d r"></span><span class="d y"></span><span class="d g"></span>
+            <span class="fname">install.sh</span>
+          </div>
+<pre><code class="language-bash"># 1. Start KurrentDB locally
+docker compose up -d
+
+# 2. Install the metapackage (core client + sensible defaults)
+composer require friendsofouro/kurrentdb-php</code></pre>
         </div>
 
         <div class="codewrap reveal">
@@ -334,6 +346,7 @@ foreach ($eventStore->forwardStreamFeedIterator('user-123') as $entry) {
     <!-- highlight.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/php.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
     <script src="javascripts/main.js"></script>
   </body>
 </html>

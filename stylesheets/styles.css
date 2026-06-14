@@ -176,6 +176,11 @@ section.block { padding: 80px 0 20px; }
   background: rgba(54,215,127,.10); border: 1px solid var(--line);
 }
 .card h3 { font-family: "Bricolage Grotesque", sans-serif; font-size: 22px; letter-spacing: -.02em; margin: 0; }
+.badge-rec {
+  font-family: "JetBrains Mono", monospace; font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink); background: var(--green); padding: 3px 9px; border-radius: 999px; vertical-align: middle;
+  margin-left: 8px; position: relative; top: -2px;
+}
 .card .pkg { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--teal); margin-top: 3px; }
 .card .stars { margin-left: auto; font-family: "JetBrains Mono", monospace; font-size: 13.5px; color: var(--horn); display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
 .card p.desc { color: var(--muted); margin: 14px 0 0; }
