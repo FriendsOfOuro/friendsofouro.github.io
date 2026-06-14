@@ -1,208 +1,339 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Friends of Ouro - Event Sourcing & KurrentDB PHP Libraries</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Friends of Ouro · Event Sourcing &amp; KurrentDB PHP Libraries</title>
+    <meta name="description" content="Open source, type-safe PHP libraries for event sourcing and KurrentDB (formerly EventStoreDB). Built by Friends of Ouro.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1 class="header">Friends of Ouro</h1>
-        <p class="header">Event Sourcing & <a href="https://kurrent.io/">KurrentDB</a> PHP Libraries</p>
+    <div class="aurora"></div>
+    <div class="grain"></div>
+    <div class="grid-lines"></div>
 
-        <ul>
-          <li class="download"><a class="buttons" href="https://packagist.org/packages/friendsofouro/">Packagist</a></li>
-          <li><a class="buttons github" href="https://github.com/FriendsOfOuro">GitHub</a></li>
-        </ul>
+    <!-- Reusable dragon SVG symbol -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <!--
+        "Sprout" — an original lookalike mascot, our own homage to the spirit of
+        the old EventStore dragon. Not a reproduction of the official artwork.
+      -->
+      <symbol id="ouro" viewBox="0 0 260 260">
+        <!-- feet (behind body) -->
+        <rect x="100" y="196" width="22" height="22" rx="10" fill="#1f9e5a"/>
+        <rect x="138" y="196" width="22" height="22" rx="10" fill="#1f9e5a"/>
+        <!-- left wing -->
+        <path d="M88 118 C62 104 44 110 42 122 C53 119 58 124 60 130 C50 132 47 139 50 148 C61 141 68 144 74 150 C71 137 79 128 88 126 Z" fill="#2bb56a"/>
+        <!-- right wing -->
+        <path d="M172 118 C198 104 216 110 218 122 C207 119 202 124 200 130 C210 132 213 139 210 148 C199 141 192 144 186 150 C189 137 181 128 172 126 Z" fill="#2bb56a"/>
+        <!-- curly tail -->
+        <path d="M166 198 C194 206 200 228 182 234 C188 219 176 211 162 208 Z" fill="#2bb56a"/>
+        <!-- horns -->
+        <path d="M108 40 L120 72 L98 67 Z" fill="#ffd23f"/>
+        <path d="M152 40 L162 67 L140 72 Z" fill="#ffd23f"/>
+        <!-- body -->
+        <rect x="84" y="62" width="92" height="142" rx="34" fill="#36d77f"/>
+        <rect x="84" y="62" width="92" height="142" rx="34" fill="url(#shine)"/>
+        <!-- belly panel + stripes -->
+        <rect x="102" y="150" width="56" height="46" rx="16" fill="#4ce98c" opacity=".55"/>
+        <rect x="113" y="162" width="34" height="6" rx="3" fill="#ffffff" opacity=".35"/>
+        <rect x="113" y="176" width="34" height="6" rx="3" fill="#ffffff" opacity=".3"/>
+        <!-- eyes whites -->
+        <circle cx="116" cy="120" r="21" fill="#ffffff"/>
+        <circle cx="152" cy="120" r="21" fill="#ffffff"/>
+        <!-- pupils -->
+        <circle cx="121" cy="124" r="9.5" fill="#07110f"/>
+        <circle cx="157" cy="124" r="9.5" fill="#07110f"/>
+        <circle cx="125" cy="120" r="3.2" fill="#ffffff"/>
+        <circle cx="161" cy="120" r="3.2" fill="#ffffff"/>
+        <!-- blinking lids -->
+        <rect class="eyelid" x="95" y="99" width="42" height="44" rx="21" fill="#36d77f"/>
+        <rect class="eyelid" x="131" y="99" width="42" height="44" rx="21" fill="#36d77f"/>
+        <!-- nostrils -->
+        <ellipse cx="127" cy="150" rx="3.6" ry="5" fill="#1f9e5a"/>
+        <ellipse cx="143" cy="150" rx="3.6" ry="5" fill="#1f9e5a"/>
+        <!-- smile -->
+        <path d="M112 162 Q135 182 158 160" stroke="#1f7a4a" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <!-- single fang -->
+        <path d="M150 168 L156 182 L162 167 Z" fill="#ffffff"/>
+        <defs>
+          <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffffff" stop-opacity=".22"/>
+            <stop offset=".4" stop-color="#ffffff" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+      </symbol>
+    </svg>
 
-        <p class="header">Open source PHP libraries for event sourcing</p>
+    <!-- Nav -->
+    <nav>
+      <div class="wrap">
+        <span class="brand"><svg class="mini-dragon"><use href="#ouro"/></svg><b>Friends of Ouro</b></span>
+        <div class="links">
+          <a href="#projects" class="hide-sm">Projects</a>
+          <a href="#start" class="hide-sm">Quick start</a>
+          <a href="https://packagist.org/packages/friendsofouro/">Packagist</a>
+          <a href="https://github.com/FriendsOfOuro" class="pill">GitHub ↗</a>
+        </div>
+      </div>
+    </nav>
 
-      </header>
-      <section>
-        <h1>
-<a name="friends-of-ouro" class="anchor" href="#friends-of-ouro"><span class="octicon octicon-link"></span></a>Friends of Ouro</h1>
+    <!-- Hero -->
+    <header class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow reveal"><span class="dot"></span>Event sourcing · PHP 8.4+</span>
+          <h1 class="title reveal" style="animation-delay:.05s">Type-safe PHP for <span class="grad">event-driven</span> systems.</h1>
+          <p class="lede reveal" style="animation-delay:.12s">
+            A family of modern, well-tested open source libraries for event sourcing and
+            <a href="https://kurrent.io/" style="color:var(--green-soft)">KurrentDB</a> (formerly EventStoreDB) — from a low-level HTTP client to a batteries-included Symfony bundle.
+          </p>
+          <div class="cta reveal" style="animation-delay:.2s">
+            <a class="btn primary" href="#start">Get started</a>
+            <a class="btn ghost" href="https://github.com/FriendsOfOuro">Browse the source ↗</a>
+          </div>
+          <div class="hero-meta reveal" style="animation-delay:.28s">
+            <div class="stat"><div class="n">6</div><div class="l">libraries</div></div>
+            <div class="stat"><div class="n">8.4+</div><div class="l">php version</div></div>
+            <div class="stat"><div class="n">PSR</div><div class="l">7 · 17 · 18</div></div>
+            <div class="stat"><div class="n">MIT</div><div class="l">licensed</div></div>
+          </div>
+        </div>
+        <div class="dragon-stage reveal" style="animation-delay:.15s">
+          <svg class="dragon" viewBox="0 0 260 260"><use href="#ouro"/></svg>
+        </div>
+      </div>
+    </header>
 
-<p>Open source PHP libraries for event sourcing and <a href="https://kurrent.io/">KurrentDB</a> (formerly EventStoreDB) integration. Our mission is to provide modern, type-safe, and well-tested PHP tools for building event-driven applications.</p>
+    <!-- Nostalgia note -->
+    <div class="wrap">
+      <div class="note reveal">
+        <div class="badge">🐉</div>
+        <p>About the name — <b>Ouro</b> was the friendly green dragon mascot of the original EventStore. It's not part of the official branding anymore, but we always had a soft spot for the little guy. <b>Friends of Ouro</b> is our nostalgic tip of the hat: same love for event sourcing, carried forward into the KurrentDB era.</p>
+      </div>
+    </div>
 
-<h2>
-<a name="our-projects" class="anchor" href="#our-projects"><span class="octicon octicon-link"></span></a>Our Projects</h2>
+    <!-- Projects -->
+    <section class="block" id="projects">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div class="sec-tag">// the event stream</div>
+          <h2>Every project, in order of appearance.</h2>
+          <p>The libraries that make up the family — append-only, just how we like it.</p>
+        </div>
 
-<h3>
-<a name="kurrentdb-php-core" class="anchor" href="#kurrentdb-php-core"><span class="octicon octicon-link"></span></a>🏗️ KurrentDB PHP Core</h3>
+        <div class="stream">
+          <!-- core -->
+          <div class="event reveal">
+            <div class="card">
+              <div class="top">
+                <div class="ico">🏗️</div>
+                <div>
+                  <h3>KurrentDB PHP Core</h3>
+                  <div class="pkg">friendsofouro/kurrentdb-core</div>
+                </div>
+                <span class="stars">★ 69</span>
+              </div>
+              <p class="desc">The flagship client for the KurrentDB HTTP API. Strict typing, stream management, optimistic concurrency, forward/backward iteration, batch operations and HTTP caching — all PSR-7/18 compliant.</p>
+              <div class="tags"><span class="tag">stream r/w/delete</span><span class="tag">optimistic concurrency</span><span class="tag">batch ops</span><span class="tag">PSR-7/18</span></div>
+              <div class="install"><code><span class="sigil">$ </span>composer require friendsofouro/kurrentdb-core</code><button class="copy" data-cmd="composer require friendsofouro/kurrentdb-core">copy</button></div>
+              <a class="more" href="https://github.com/FriendsOfOuro/kurrentdb-php-core">Documentation &amp; source <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
 
-<p><strong>The main PHP client library for KurrentDB HTTP API</strong></p>
+          <!-- metapackage -->
+          <div class="event is-teal reveal">
+            <div class="card">
+              <div class="top">
+                <div class="ico">📦</div>
+                <div>
+                  <h3>KurrentDB PHP</h3>
+                  <div class="pkg">friendsofouro/kurrentdb-php</div>
+                </div>
+                <span class="stars">★ 5</span>
+              </div>
+              <p class="desc">A convenience metapackage that bundles the core client with sensible default dependencies. The fastest way to go from <code>composer require</code> to writing events.</p>
+              <div class="tags"><span class="tag">good defaults</span><span class="tag">quick setup</span><span class="tag">metapackage</span></div>
+              <div class="install"><code><span class="sigil">$ </span>composer require friendsofouro/kurrentdb-php</code><button class="copy" data-cmd="composer require friendsofouro/kurrentdb-php">copy</button></div>
+              <a class="more" href="https://github.com/FriendsOfOuro/kurrentdb-php">GitHub repository <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
 
-<p><a href="https://github.com/FriendsOfOuro/kurrentdb-php-core/actions/workflows/php_8.yml"><img src="https://github.com/FriendsOfOuro/kurrentdb-php-core/actions/workflows/php_8.yml/badge.svg" alt="PHP 8"></a>
-<a href="https://packagist.org/packages/friendsofouro/kurrentdb-core"><img src="https://img.shields.io/packagist/v/friendsofouro/kurrentdb-core.svg" alt="Latest Stable Version"></a></p>
+          <!-- bundle -->
+          <div class="event is-blue reveal">
+            <div class="card">
+              <div class="top">
+                <div class="ico">🎯</div>
+                <div>
+                  <h3>KurrentDB Symfony Bundle</h3>
+                  <div class="pkg">friendsofouro/kurrentdb-bundle</div>
+                </div>
+                <span class="stars">★ 3</span>
+              </div>
+              <p class="desc">Seamless Symfony 7.3+ integration — service container wiring, configuration management and auto-wiring so KurrentDB feels native to your application.</p>
+              <div class="tags"><span class="tag">Symfony 7.3+</span><span class="tag">auto-wiring</span><span class="tag">DI config</span></div>
+              <div class="install"><code><span class="sigil">$ </span>composer require friendsofouro/kurrentdb-bundle</code><button class="copy" data-cmd="composer require friendsofouro/kurrentdb-bundle">copy</button></div>
+              <a class="more" href="https://github.com/FriendsOfOuro/kurrentdb-bundle">Bundle documentation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
 
-<ul>
-<li>✅ Modern PHP 8.4+ with strict typing</li>
-<li>✅ Stream management (read, write, delete)</li>
-<li>✅ Optimistic concurrency control</li>
-<li>✅ Forward/backward iteration with page limits</li>
-<li>✅ Batch operations & HTTP caching</li>
-<li>✅ PSR-7/PSR-18 compliant</li>
-<li>✅ Comprehensive error handling</li>
-</ul>
+          <!-- contract -->
+          <div class="event reveal">
+            <div class="card">
+              <div class="top">
+                <div class="ico">🔌</div>
+                <div>
+                  <h3>HTTP Batch Contract</h3>
+                  <div class="pkg">friendsofouro/http-batch-contract</div>
+                </div>
+              </div>
+              <p class="desc">PSR-18 interface contracts for sending many HTTP requests efficiently. Type-safe batch responses, exception aggregation and transformation utilities — the backbone of the core client's batched reads.</p>
+              <div class="tags"><span class="tag">PSR-18</span><span class="tag">interfaces</span><span class="tag">exception aggregation</span></div>
+              <div class="install"><code><span class="sigil">$ </span>composer require friendsofouro/http-batch-contract</code><button class="copy" data-cmd="composer require friendsofouro/http-batch-contract">copy</button></div>
+              <a class="more" href="https://github.com/FriendsOfOuro/http-batch-contract">Contract documentation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
 
-<pre><code>composer require friendsofouro/kurrentdb-core</code></pre>
+          <!-- guzzle -->
+          <div class="event is-teal reveal">
+            <div class="card">
+              <div class="top">
+                <div class="ico">⚡</div>
+                <div>
+                  <h3>HTTP Batch Guzzle</h3>
+                  <div class="pkg">friendsofouro/http-batch-guzzle</div>
+                </div>
+              </div>
+              <p class="desc">A high-performance Guzzle implementation of the batch contract — concurrent request processing, built-in HTTP caching with filesystem and APCu adapters, plus retry logic.</p>
+              <div class="tags"><span class="tag">concurrent</span><span class="tag">HTTP caching</span><span class="tag">APCu / filesystem</span></div>
+              <div class="install"><code><span class="sigil">$ </span>composer require friendsofouro/http-batch-guzzle</code><button class="copy" data-cmd="composer require friendsofouro/http-batch-guzzle">copy</button></div>
+              <a class="more" href="https://github.com/FriendsOfOuro/http-batch-guzzle">Implementation guide <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
 
-<p><a href="https://github.com/FriendsOfOuro/kurrentdb-php-core">📚 Documentation & Source Code</a></p>
+          <!-- docker -->
+          <div class="event is-blue reveal">
+            <div class="card">
+              <div class="top">
+                <div class="ico">🐳</div>
+                <div>
+                  <h3>KurrentDB Docker Example</h3>
+                  <div class="pkg">FriendsOfOuro/kurrentdb-docker-example</div>
+                </div>
+              </div>
+              <p class="desc">A ready-to-use Docker Compose setup for running KurrentDB locally. One command up, web UI on <code>:2113</code>, persistent storage — perfect for development and testing.</p>
+              <div class="tags"><span class="tag">docker compose</span><span class="tag">web UI :2113</span><span class="tag">persistent data</span></div>
+              <div class="install"><code><span class="sigil">$ </span>git clone git@github.com:FriendsOfOuro/kurrentdb-docker-example.git</code><button class="copy" data-cmd="git clone git@github.com:FriendsOfOuro/kurrentdb-docker-example.git && cd kurrentdb-docker-example && docker compose up">copy</button></div>
+              <a class="more" href="https://github.com/FriendsOfOuro/kurrentdb-docker-example">Get the Docker setup <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
 
-<h3>
-<a name="kurrentdb-php" class="anchor" href="#kurrentdb-php"><span class="octicon octicon-link"></span></a>📦 KurrentDB PHP (Metapackage)</h3>
+        </div>
+      </div>
+    </section>
 
-<p><strong>Convenience package with good defaults</strong></p>
+    <!-- Quick start -->
+    <section class="block" id="start">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div class="sec-tag">// quick start</div>
+          <h2>Write your first event in minutes.</h2>
+          <p>Spin up KurrentDB with the Docker example, install the core client, and you're appending events to a stream.</p>
+        </div>
 
-<p>This metapackage includes <code>kurrentdb-core</code> with sensible default dependencies, perfect for quick setup.</p>
+        <div class="codewrap reveal">
+          <div class="codebar">
+            <span class="d r"></span><span class="d y"></span><span class="d g"></span>
+            <span class="fname">first-event.php</span>
+          </div>
+<pre><code class="language-php">&lt;?php
 
-<pre><code>composer require friendsofouro/kurrentdb-php</code></pre>
-
-<p><a href="https://github.com/FriendsOfOuro/kurrentdb-php">🔗 GitHub Repository</a></p>
-
-<h3>
-<a name="kurrentdb-bundle" class="anchor" href="#kurrentdb-bundle"><span class="octicon octicon-link"></span></a>🎯 KurrentDB Symfony Bundle</h3>
-
-<p><strong>Symfony 7.3+ integration bundle</strong></p>
-
-<p>Seamless integration of KurrentDB into your Symfony applications with dependency injection, configuration management, and more.</p>
-
-<ul>
-<li>✅ Symfony 7.3+ compatibility</li>
-<li>✅ Service container integration</li>
-<li>✅ Configuration management</li>
-<li>✅ Auto-wiring support</li>
-</ul>
-
-<pre><code>composer require friendsofouro/kurrentdb-bundle</code></pre>
-
-<p><a href="https://github.com/FriendsOfOuro/kurrentdb-bundle">📘 Bundle Documentation</a></p>
-
-<h3>
-<a name="kurrentdb-docker-example" class="anchor" href="#kurrentdb-docker-example"><span class="octicon octicon-link"></span></a>🐳 KurrentDB Docker Example</h3>
-
-<p><strong>Simple Docker setup for local development</strong></p>
-
-<p>Ready-to-use Docker Compose configuration for running KurrentDB locally. Perfect for development and testing.</p>
-
-<ul>
-<li>🚀 Single command setup: <code>docker-compose up</code></li>
-<li>🌐 Web UI available at <a href="http://localhost:2113/">http://localhost:2113/</a></li>
-<li>🔐 Default credentials: admin/changeit</li>
-<li>💾 Persistent data storage</li>
-</ul>
-
-<p><a href="https://github.com/FriendsOfOuro/kurrentdb-docker-example">🐋 Get Docker Setup</a></p>
-
-<h3>
-<a name="http-batch-contract" class="anchor" href="#http-batch-contract"><span class="octicon octicon-link"></span></a>🔌 HTTP Batch Contract</h3>
-
-<p><strong>PSR-18 interface contracts for batch HTTP requests</strong></p>
-
-<p>Defines the standard interfaces for handling multiple HTTP requests efficiently. Used internally by KurrentDB libraries for optimized batch operations.</p>
-
-<ul>
-<li>✅ PSR-18 compliant interfaces</li>
-<li>✅ Type-safe batch response handling</li>
-<li>✅ Exception aggregation support</li>
-<li>✅ Filtering and transformation utilities</li>
-</ul>
-
-<pre><code>composer require friendsofouro/http-batch-contract</code></pre>
-
-<p><a href="https://github.com/FriendsOfOuro/http-batch-contract">🔗 Contract Documentation</a></p>
-
-<h3>
-<a name="http-batch-guzzle" class="anchor" href="#http-batch-guzzle"><span class="octicon octicon-link"></span></a>⚡ HTTP Batch Guzzle</h3>
-
-<p><strong>Guzzle implementation for efficient batch HTTP processing</strong></p>
-
-<p>High-performance Guzzle-based implementation of the HTTP batch contracts with caching support and concurrent request handling.</p>
-
-<ul>
-<li>✅ Concurrent request processing</li>
-<li>✅ Built-in HTTP caching support</li>
-<li>✅ Filesystem and APCu cache adapters</li>
-<li>✅ Exception handling and retry logic</li>
-</ul>
-
-<pre><code>composer require friendsofouro/http-batch-guzzle</code></pre>
-
-<p><a href="https://github.com/FriendsOfOuro/http-batch-guzzle">🚀 Implementation Guide</a></p>
-
-<h2>
-<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
-
-<h3>Quick Example</h3>
-
-<pre><code>use KurrentDB\EventStore;
+use KurrentDB\EventStore;
 use FriendsOfOuro\Http\Batch\Guzzle\GuzzleHttpClient;
 use KurrentDB\WritableEvent;
 use KurrentDB\ValueObjects\Identity\UUID;
 use GuzzleHttp\Psr7\HttpFactory;
 
-// Create client
+// Create the client
 $httpFactory = new HttpFactory();
-$httpClient = new GuzzleHttpClient();
+$httpClient  = new GuzzleHttpClient();
 
 $eventStore = new EventStore(
     $httpFactory->createUri('http://admin:changeit@127.0.0.1:2113'),
     $httpFactory,  // UriFactory
     $httpFactory,  // RequestFactory
-    $httpClient
+    $httpClient,
 );
 
-// Write events
+// Write an event
 $event = new WritableEvent(
     new UUID(),
     'user-registered',
-    ['userId' => '123', 'email' => 'user@example.com']
+    ['userId' => '123', 'email' => 'user@example.com'],
 );
 
-$version = $eventStore-&gt;writeToStream('user-123', $event);
+$version = $eventStore->writeToStream('user-123', $event);
 
-// Read events
-foreach ($eventStore-&gt;forwardStreamFeedIterator('user-123') as $entry) {
-    echo "Event: " . $entry-&gt;getEvent()-&gt;getType() . "\n";
+// Read the stream back
+foreach ($eventStore->forwardStreamFeedIterator('user-123') as $entry) {
+    echo 'Event: ' . $entry->getEvent()->getType() . PHP_EOL;
 }
 </code></pre>
+        </div>
 
-<h2>
-<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+        <div class="feat">
+          <div class="f reveal"><div class="e">🧊</div><h4>Strictly typed</h4><p>Modern PHP 8.4+ with value objects and strict types throughout — fewer runtime surprises.</p></div>
+          <div class="f reveal" style="animation-delay:.06s"><div class="e">🔒</div><h4>Optimistic concurrency</h4><p>Expected-version checks make safe, conflict-aware writes a first-class concern.</p></div>
+          <div class="f reveal" style="animation-delay:.12s"><div class="e">🧪</div><h4>Well tested</h4><p>Comprehensive suites and CI across the family, so you can upgrade with confidence.</p></div>
+        </div>
+      </div>
+    </section>
 
-<ul>
-<li>PHP 8.4 or higher</li>
-<li>KurrentDB server instance</li>
-<li>Composer for package management</li>
-</ul>
+    <!-- Requirements / contributing -->
+    <section class="block">
+      <div class="wrap">
+        <div class="feat">
+          <div class="f reveal">
+            <div class="e">📋</div><h4>Requirements</h4>
+            <p>PHP 8.4 or higher · a KurrentDB server instance · Composer for package management.</p>
+          </div>
+          <div class="f reveal" style="animation-delay:.06s">
+            <div class="e">🤝</div><h4>Contributing</h4>
+            <p>Each repo has its own guidelines. Open issues, send PRs, or start a discussion — newcomers welcome.</p>
+          </div>
+          <div class="f reveal" style="animation-delay:.12s">
+            <div class="e">📜</div><h4>License</h4>
+            <p>Everything is released under the permissive MIT license. Build freely, commercial or otherwise.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<h2>
-<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+    <!-- Footer -->
+    <footer>
+      <div class="wrap">
+        <div>
+          <span class="brand"><svg class="mini-dragon"><use href="#ouro"/></svg><b>Friends of Ouro</b></span>
+          <p class="small" style="margin-top:12px">Open source PHP libraries for event sourcing &amp; KurrentDB. Made with nostalgia for a little green dragon.</p>
+          <p class="small" style="margin-top:8px;opacity:.7">Not endorsed by Kurrent Ltd. KurrentDB and EventStoreDB are trademarks of their respective owners.</p>
+        </div>
+        <div class="flinks">
+          <a href="https://github.com/FriendsOfOuro">GitHub</a>
+          <a href="https://packagist.org/packages/friendsofouro/">Packagist</a>
+          <a href="https://kurrent.io/">KurrentDB</a>
+        </div>
+      </div>
+    </footer>
 
-<p>We welcome contributions! Each repository has its own contributing guidelines:</p>
-
-<ul>
-<li><a href="https://github.com/FriendsOfOuro/kurrentdb-php-core/blob/main/CONTRIBUTING.md">kurrentdb-php-core Contributing Guide</a></li>
-<li><a href="https://github.com/FriendsOfOuro/kurrentdb-bundle">kurrentdb-bundle Issues</a></li>
-</ul>
-
-<p>Feel free to open issues, submit pull requests, or discuss improvements in our GitHub repositories.</p>
-
-      </section>
-      <footer>
-        <p><small>This project is not endorsed by Kurrent Ltd.</small></p>
-      </footer>
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/php.min.js"></script>
+    <script src="javascripts/main.js"></script>
   </body>
 </html>
